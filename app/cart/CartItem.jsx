@@ -7,7 +7,7 @@ import {
 } from "../../core/store/CartSlice";
 import "./cart.css";
 
-export default function Cart() {
+export default function CartItem() {
   const dispatch = useDispatch();
   const cartItems = useSelector((state) => state.cart.items);
 

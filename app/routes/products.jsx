@@ -1,4 +1,4 @@
-import { Products } from "../products/ProductList";
+import Products from "../products/ProductList";
 import { Nabvar } from "../components/Nabvar/Header";
 export function meta() {
   return [
