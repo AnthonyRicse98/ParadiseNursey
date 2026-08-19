@@ -1,0 +1,63 @@
+.main-header {
+  background-color: #166534; 
+  color: white;
+  padding: 1rem; 
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); /* shadow-md */
+}
+
+.main-nav {
+  max-width: 1280px;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  justify-content: center; 
+  align-items: center;
+}
+
+.brand-logo {
+  font-size: 1.5rem; 
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  margin-right: auto; 
+}
+
+.brand-logo-img {
+  height: 2rem; 
+  width: 2rem; 
+  margin-right: 0.5rem; 
+}
+
+.nav-list {
+  display: flex;
+  gap: 1rem; 
+  position: absolute; 
+  left: 50%; 
+  transform: translateX(-50%); 
+}
+
+.nav-link {
+  color: white; 
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke; /* transition-colors */
+  transition-duration: 200ms; 
+
+  &:hover {
+    color: #bbf7d0; 
+  }
+}
+
+
+.cart-badge {
+  position: absolute;
+  top: -8px; /* Ajusta la posición vertical */
+  right: -8px; /* Ajusta la posición horizontal */
+  background-color: #ef4444; /* Fondo rojo */
+  color: white;
+  border-radius: 9999px; /* Completamente redondo */
+  font-size: 0.75rem; /* Tamaño de fuente pequeño */
+  width: 20px; /* Ancho fijo */
+  height: 20px; /* Alto fijo */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

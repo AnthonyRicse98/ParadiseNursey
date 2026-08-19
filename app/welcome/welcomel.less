@@ -1,0 +1,51 @@
+p{
+    color: white;
+}
+
+span{
+    color: white;
+}
+
+.container_dashboard{
+    display: flex;
+    flex-direction: row;
+    .container_welcome{
+        margin: 8rem;
+        display: flex;
+        flex-direction: column;
+        .container_title{
+            font-size: 3rem;
+            font-weight: 700;
+            white-space: nowrap;
+        }
+        .description{
+            // Se usa text-align para centrar el texto, ya que 'display: flex' no es necesario si solo contiene texto.
+            text-align: center;
+            margin:1rem;
+            font-size: 1.50rem;
+            font-weight: 400;
+        }
+        .btn-primary{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            align-self: center;
+        }
+    }
+    .container_text{
+        margin: 7rem;
+        display: flex;
+        flex-direction: column;
+        font-size: 1.45rem;
+        font-weight:500;
+        .title{
+            text-align: center;
+        }
+        .description{
+            text-align: justify;
+        }
+        .finally{
+            text-align: center;
+        }
+    }
+}
