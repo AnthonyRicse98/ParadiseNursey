@@ -20,26 +20,32 @@ const CartContext = createContext<CartContextType | undefined>(undefined);
 const CART_STORAGE_KEY = "paradise_nursery_cart";
 
 export const CartProvider = ({ children }: { children: ReactNode }) => {
-  // 1. Inicializar el estado leyendo directamente desde localStorage
-  const [cartItems, setCartItems] = useState<CartItem[]>(() => {
-    if (typeof window === "undefined") return []; // Guard para SSR (Server Side Rendering)
+  const [cartItems, setCartItems] = useState<CartItem[]>([]);
+  const [isLoaded, setIsLoaded] = useState(false);
+
+  // 1. Cargar del localStorage SOLO en el primer render en el cliente
+  useEffect(() => {
     try {
       const savedCart = localStorage.getItem(CART_STORAGE_KEY);
-      return savedCart ? JSON.parse(savedCart) : [];
+      if (savedCart) {
+        setCartItems(JSON.parse(savedCart));
+      }
     } catch (error) {
       console.error("Error cargando carrito de localStorage:", error);
-      return [];
+    } finally {
+      setIsLoaded(true); // Marcamos que la carga en cliente ha terminado
     }
-  });
+  }, []);
 
-  // 2. Guardar en localStorage cada vez que cambie cartItems
+  // 2. Guardar en localStorage solo cuando el carrito haya sido cargado previamente
   useEffect(() => {
+    if (!isLoaded) return; // Evita sobrescribir el storage con [] al iniciar
     try {
       localStorage.setItem(CART_STORAGE_KEY, JSON.stringify(cartItems));
     } catch (error) {
       console.error("Error guardando carrito en localStorage:", error);
     }
-  }, [cartItems]);
+  }, [cartItems, isLoaded]);
 
   const addToCart = (product: Product) => {
     setCartItems((prevItems) => {
