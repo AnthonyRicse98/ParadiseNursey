@@ -6,7 +6,8 @@ import {
   Scripts,
   ScrollRestoration,
 } from "react-router";
-import { CartProvider } from "../core/context/CartSlice";
+import { Provider } from "react-redux";
+import { store } from "../core/store/store";
 import "./app.css";
 
 export const links = () => [
@@ -24,7 +25,7 @@ export const links = () => [
 
 export function Layout({ children }) {
   return (
-    <html lang="en">
+    <html lang="es">
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -42,22 +43,22 @@ export function Layout({ children }) {
 
 export default function App() {
   return (
-    <CartProvider>
+    <Provider store={store}>
       <Outlet />
-    </CartProvider>
+    </Provider>
   );
 }
 
 export function ErrorBoundary({ error }) {
-  let message = "Oops!";
-  let details = "An unexpected error occurred.";
+  let message = "¡Ups!";
+  let details = "Ocurrió un error inesperado.";
   let stack;
 
   if (isRouteErrorResponse(error)) {
     message = error.status === 404 ? "404" : "Error";
     details =
       error.status === 404
-        ? "The requested page could not be found."
+        ? "La página solicitada no pudo ser encontrada."
         : error.statusText || details;
   } else if (import.meta.env.DEV && error && error instanceof Error) {
     details = error.message;
@@ -65,11 +66,11 @@ export function ErrorBoundary({ error }) {
   }
 
   return (
-    <main className="pt-16 p-4 container mx-auto">
+    <main style={{ padding: "4rem 2rem", maxWidth: "1200px", margin: "0 auto" }}>
       <h1>{message}</h1>
       <p>{details}</p>
       {stack && (
-        <pre className="w-full p-4 overflow-x-auto">
+        <pre style={{ width: "100%", padding: "1rem", overflowX: "auto", backgroundColor: "#f4f4f4" }}>
           <code>{stack}</code>
         </pre>
       )}

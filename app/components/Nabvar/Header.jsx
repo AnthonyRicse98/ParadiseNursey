@@ -1,14 +1,20 @@
 import { Link } from "react-router";
+import { useSelector } from "react-redux";
 import "./Header.css";
-import { useCart } from "../../../core/context/CartSlice";
+
 export function Nabvar() {
-  const { cartCount } = useCart();
+  // Leemos los productos directamente desde la store de Redux
+  const cartItems = useSelector((state) => state.cart.items);
+  
+  // Calculamos el total de plantas acumuladas
+  const cartCount = cartItems.reduce((sum, item) => sum + item.quantity, 0);
+
   return (
     <header className="main-header">
       <nav className="main-nav">
         <Link to="/" className="brand-logo">
           <img src="/logo.png" alt="Paradise Logo" className="brand-logo-img" />
-          Paradise Nursey
+          Paradise Nursery
         </Link>
         <ul className="nav-list">
           <li>

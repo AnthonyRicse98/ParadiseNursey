@@ -1,6 +1,6 @@
 import "./products.css";
-// 1. Corregido el origen de la importación a CartContext
-import { useCart } from "../../core/context/CartSlice"; 
+import { useDispatch, useSelector } from "react-redux";
+import { addItem } from "../../core/store/CartSlice";
 
 const products = [
   {
@@ -94,8 +94,10 @@ export function Products() {
 }
 
 function ProductCard({ product }) {
-  // 2. Corregido: Extraemos 'addItem' de useCart
-  const { cartItems, addItem } = useCart(); 
+  const dispatch = useDispatch();
+  // Leemos la lista de items directamente desde la store de Redux
+  const cartItems = useSelector((state) => state.cart.items);
+  
   const itemInCart = cartItems.find((item) => item.id === product.id);
   const isDisabled = Boolean(itemInCart);
 
@@ -111,7 +113,7 @@ function ProductCard({ product }) {
       <p className="product_price">${product.price}</p>
       <button
         className={`btn-primary ${isDisabled ? "btn-disabled" : ""}`}
-        onClick={() => addItem(product)} 
+        onClick={() => dispatch(addItem(product))} 
         disabled={isDisabled}
       >
         {isDisabled ? "Agregado al carrito" : "Agregar al carrito"}
