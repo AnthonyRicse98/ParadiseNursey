@@ -65,7 +65,6 @@ const products = [
 ];
 
 export function Products() {
-    // Agrupamos los productos por la propiedad 'category'
     const groupedProducts = products.reduce((acc, product) => {
         const category = product.category;
         if (!acc[category]) {

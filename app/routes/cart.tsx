@@ -4,13 +4,13 @@ import { Nabvar } from "../components/Nabvar/Header";
 export function meta() {
   return [
     { title: "Paradise - Carrito" },
-    { name: "description", content: "Tu carrito de compras en Paradise." }, // Descripción más específica
+    { name: "description", content: "Tu carrito de compras en Paradise." },
   ];
 }
 
 export default function CartRoute() {
     return <section>
-        <Nabvar /> {/* El Navbar se renderiza aquí */}
+        <Nabvar />
         <Cart />
     </section>;
 }

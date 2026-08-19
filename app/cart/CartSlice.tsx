@@ -17,7 +17,7 @@ export default function Cart() {
         </div>
       ) : (
         <>
-          <div className="cart-items-list">
+          <section className="cart-items-list">
             {cartItems.map((item) => (
               <div
                 key={item.id}
@@ -41,7 +41,6 @@ export default function Cart() {
                   </div>
                 </div>
 
-                {/* Controles de incremento/decremento y borrado */}
                 <div className="quantity-controls">
                   <div className="quantity-buttons">
                     <button
@@ -70,10 +69,9 @@ export default function Cart() {
                 </div>
               </div>
             ))}
-          </div>
+          </section>
 
-          {/* Resumen del total */}
-          <div className="cart-summary">
+          <section className="cart-summary">
             <p className="selected-plants-count">
               Plantas seleccionadas: <strong>{cartCount}</strong>
             </p>
@@ -95,7 +93,7 @@ export default function Cart() {
                 Pagar
               </button>
             </div>
-          </div>
+          </section>
         </>
       )}
     </div>

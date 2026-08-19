@@ -1,5 +1,5 @@
 import './welcomel.less';
-import { Link } from 'react-router'; // Importamos Link de react-router (v8)
+import { Link } from 'react-router';
 export function Welcome() {
   return (
     <main className="flex items-center justify-center pt-16 pb-4" style={{ backgroundImage: 'url("/fondo-botanico.jpg")', backgroundSize: 'cover', backgroundPosition: 'center', backgroundRepeat: 'no-repeat', minHeight: '100vh', backgroundAttachment: 'fixed', backgroundColor: '#f0f0f0' }}>
@@ -7,7 +7,6 @@ export function Welcome() {
         <div className="container_welcome">
           <span className="container_title">Bienvenido a Paradise</span>
           <span className="description">Bienvenidos a Paradise</span>
-          {/* Se aplica la clase 'btn-primary' directamente al componente Link */}
           <Link to="/products" className='btn-primary'>
             Ver Productos
           </Link>
