@@ -1,9 +1,9 @@
 {
   "name": "paradise",
-  "private": true,
-  "type": "module",
+  "private": false,
+ "type": "module",
   "scripts": {
-    "build": "react-router build",
+    "build": "react-router build && cp -r build/client dist",
     "dev": "react-router dev",
     "start": "react-router-serve ./build/server/index.js"
   },
