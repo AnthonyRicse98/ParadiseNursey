@@ -8,6 +8,7 @@ export const CartProvider = ({ children }) => {
   const [cartItems, setCartItems] = useState([]);
   const [isLoaded, setIsLoaded] = useState(false);
 
+  // Cargar del localStorage
   useEffect(() => {
     try {
       const savedCart = localStorage.getItem(CART_STORAGE_KEY);
@@ -21,6 +22,7 @@ export const CartProvider = ({ children }) => {
     }
   }, []);
 
+  // Guardar en localStorage
   useEffect(() => {
     if (!isLoaded) return;
     try {
@@ -30,7 +32,8 @@ export const CartProvider = ({ children }) => {
     }
   }, [cartItems, isLoaded]);
 
-  const addToCart = (product) => {
+  // Añadir un producto al carrito
+  const addItem = (product) => {
     setCartItems((prevItems) => {
       const existingItem = prevItems.find((item) => item.id === product.id);
 
@@ -38,7 +41,7 @@ export const CartProvider = ({ children }) => {
         return prevItems.map((item) =>
           item.id === product.id
             ? { ...item, quantity: item.quantity + 1 }
-            : item,
+            : item
         );
       }
 
@@ -46,19 +49,27 @@ export const CartProvider = ({ children }) => {
     });
   };
 
-  const removeFromCart = (id) => {
+  // Remover un producto por ID
+  const removeItem = (id) => {
     setCartItems((prev) => prev.filter((item) => item.id !== id));
   };
 
-  const updateQuantity = (id, delta) => {
+  // Actualizar la cantidad de un ítem
+  const updateQuantity = (id, deltaOrQuantity) => {
     setCartItems((prev) =>
-      prev.map((item) => {
-        if (item.id === id) {
-          const newQty = item.quantity + delta;
-          return newQty > 0 ? { ...item, quantity: newQty } : item;
-        }
-        return item;
-      }),
+      prev
+        .map((item) => {
+          if (item.id === id) {
+            // Permite pasar tanto una nueva cantidad absoluta como un delta (+1, -1)
+            const newQty = typeof deltaOrQuantity === "number" && deltaOrQuantity < 5 
+              ? item.quantity + deltaOrQuantity 
+              : deltaOrQuantity;
+
+            return { ...item, quantity: newQty };
+          }
+          return item;
+        })
+        .filter((item) => item.quantity > 0) // Si la cantidad baja a 0, elimina el producto
     );
   };
 
@@ -67,15 +78,15 @@ export const CartProvider = ({ children }) => {
   const cartCount = cartItems.reduce((sum, item) => sum + item.quantity, 0);
   const totalAmount = cartItems.reduce(
     (sum, item) => sum + item.price * item.quantity,
-    0,
+    0
   );
 
   return (
     <CartContext.Provider
       value={{
         cartItems,
-        addToCart,
-        removeFromCart,
+        addItem,
+        removeItem,
         updateQuantity,
         clearCart,
         cartCount,

@@ -6,7 +6,7 @@ import {
   Scripts,
   ScrollRestoration,
 } from "react-router";
-import { CartProvider } from "../core/context/CartContext";
+import { CartProvider } from "../core/context/CartSlice";
 import "./app.css";
 
 export const links = () => [

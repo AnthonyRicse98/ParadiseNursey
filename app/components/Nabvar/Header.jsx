@@ -1,6 +1,6 @@
 import { Link } from "react-router";
 import "./Header.css";
-import { useCart } from "../../../core/context/CartContext";
+import { useCart } from "../../../core/context/CartSlice";
 export function Nabvar() {
   const { cartCount } = useCart();
   return (

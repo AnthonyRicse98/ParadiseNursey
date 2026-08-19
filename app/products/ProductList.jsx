@@ -1,5 +1,6 @@
 import "./products.css";
-import { useCart } from "../../core/context/CartContext";
+// 1. Corregido el origen de la importación a CartContext
+import { useCart } from "../../core/context/CartSlice"; 
 
 const products = [
   {
@@ -93,7 +94,8 @@ export function Products() {
 }
 
 function ProductCard({ product }) {
-  const { cartItems, addToCart } = useCart();
+  // 2. Corregido: Extraemos 'addItem' de useCart
+  const { cartItems, addItem } = useCart(); 
   const itemInCart = cartItems.find((item) => item.id === product.id);
   const isDisabled = Boolean(itemInCart);
 
@@ -109,7 +111,7 @@ function ProductCard({ product }) {
       <p className="product_price">${product.price}</p>
       <button
         className={`btn-primary ${isDisabled ? "btn-disabled" : ""}`}
-        onClick={() => addToCart(product)}
+        onClick={() => addItem(product)} 
         disabled={isDisabled}
       >
         {isDisabled ? "Agregado al carrito" : "Agregar al carrito"}

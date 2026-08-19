@@ -1,4 +1,4 @@
-import "./welcomel.css";
+import "./App.css";
 import { Link } from "react-router";
 
 export function Welcome() {

@@ -1,4 +1,4 @@
-import { useCart } from "../../core/context/CartContext";
+import { useCart } from "../../core/context/CartSlice";
 import "./cart.css"; // Importamos los estilos LESS
 
 export default function Cart() {
