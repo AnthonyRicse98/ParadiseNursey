@@ -1,6 +1,10 @@
-# Welcome to React Router!
+# Welcome to Paradise!
 
-A modern, production-ready template for building full-stack React applications using React Router.
+This is the official repository for Paradise, an e-commerce platform dedicated to natural and organic products. Our mission is to provide high-quality, sustainably grown, and environmentally friendly options to promote a balanced and conscious lifestyle. You can explore and purchase our products online or visit our physical stores.
+
+This project is built upon a modern, production-ready template for full-stack React applications using React Router.
+
+## Project Overview
 
 [![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/remix-run/react-router-templates/tree/main/default)
 
@@ -10,6 +14,7 @@ A modern, production-ready template for building full-stack React applications u
 - ⚡️ Hot Module Replacement (HMR)
 - 📦 Asset bundling and optimization
 - 🔄 Data loading and mutations
+- 🛒 Shopping Cart functionality
 - 🔒 TypeScript by default
 - 🎉 TailwindCSS for styling
 - 📖 [React Router docs](https://reactrouter.com/)
@@ -84,4 +89,4 @@ This template comes with [Tailwind CSS](https://tailwindcss.com/) already config
 
 ---
 
-Built with ❤️ using React Router.
+Built with ❤️ using React Router for Paradise.

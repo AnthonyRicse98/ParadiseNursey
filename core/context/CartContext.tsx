@@ -23,7 +23,6 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
   const [cartItems, setCartItems] = useState<CartItem[]>([]);
   const [isLoaded, setIsLoaded] = useState(false);
 
-  // 1. Cargar del localStorage SOLO en el primer render en el cliente
   useEffect(() => {
     try {
       const savedCart = localStorage.getItem(CART_STORAGE_KEY);
@@ -33,13 +32,12 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
     } catch (error) {
       console.error("Error cargando carrito de localStorage:", error);
     } finally {
-      setIsLoaded(true); // Marcamos que la carga en cliente ha terminado
+      setIsLoaded(true); 
     }
   }, []);
 
-  // 2. Guardar en localStorage solo cuando el carrito haya sido cargado previamente
   useEffect(() => {
-    if (!isLoaded) return; // Evita sobrescribir el storage con [] al iniciar
+    if (!isLoaded) return; 
     try {
       localStorage.setItem(CART_STORAGE_KEY, JSON.stringify(cartItems));
     } catch (error) {
