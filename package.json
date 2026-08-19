@@ -1,11 +1,12 @@
 {
   "name": "paradise",
   "private": false,
- "type": "module",
+  "type": "module",
   "scripts": {
-    "build": "react-router build && cp -r build/client dist",
+    "build": "react-router build",
     "dev": "react-router dev",
-    "start": "react-router-serve ./build/server/index.js"
+    "start": "react-router-serve ./build/server/index.js",
+    "typecheck": "react-router typegen && tsc"
   },
   "dependencies": {
     "@react-router/node": "^8",
