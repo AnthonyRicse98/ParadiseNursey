@@ -1,5 +1,5 @@
 import type { Route } from "../+types/root"; 
-import Cart from "../cart/CartSlice";
+import Cart from "../cart/CartItem";
 import { Nabvar } from "../components/Nabvar/Header";
 export function meta() {
   return [
