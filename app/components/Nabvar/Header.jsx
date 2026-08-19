@@ -1,5 +1,5 @@
 import { Link } from "react-router";
-import './Header.less';
+import "./Header.css";
 import { useCart } from "../../../core/context/CartContext";
 export function Nabvar() {
   const { cartCount } = useCart();
@@ -12,7 +12,9 @@ export function Nabvar() {
         </Link>
         <ul className="nav-list">
           <li>
-            <Link to="/products" className="nav-link">Plantas</Link>
+            <Link to="/products" className="nav-link">
+              Plantas
+            </Link>
           </li>
         </ul>
         <Link to="/cart" className="nav-link cart-link relative">

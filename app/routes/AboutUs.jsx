@@ -1,7 +1,6 @@
-import type { Route } from "./+types/home";
 import { Welcome } from "../welcome/App";
 
-export function meta({}: Route.MetaArgs) {
+export function meta({}) {
   return [
     { title: "Paradise" },
     { name: "description", content: "Bienvenido a Paradise" },

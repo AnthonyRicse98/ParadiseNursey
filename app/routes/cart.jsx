@@ -1,4 +1,3 @@
-import type { Route } from "../+types/root"; 
 import Cart from "../cart/CartItem";
 import { Nabvar } from "../components/Nabvar/Header";
 export function meta() {
@@ -9,8 +8,10 @@ export function meta() {
 }
 
 export default function CartRoute() {
-    return <section>
-        <Nabvar />
-        <Cart />
-    </section>;
+  return (
+    <section>
+      <Nabvar />
+      <Cart />
+    </section>
+  );
 }

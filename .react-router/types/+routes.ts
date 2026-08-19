@@ -23,27 +23,27 @@ type Pages = {
 };
 
 type RouteFiles = {
-  "root.tsx": {
+  "root.jsx": {
     id: "root";
     page: "/" | "/products" | "/cart";
   };
-  "routes/home.tsx": {
-    id: "routes/home";
+  "routes/AboutUs.jsx": {
+    id: "routes/AboutUs";
     page: "/";
   };
-  "routes/products.tsx": {
+  "routes/products.jsx": {
     id: "routes/products";
     page: "/products";
   };
-  "routes/cart.tsx": {
+  "routes/cart.jsx": {
     id: "routes/cart";
     page: "/cart";
   };
 };
 
 type RouteModules = {
-  "root": typeof import("./app/root.tsx");
-  "routes/home": typeof import("./app/routes/home.tsx");
-  "routes/products": typeof import("./app/routes/products.tsx");
-  "routes/cart": typeof import("./app/routes/cart.tsx");
+  "root": typeof import("./app/root.jsx");
+  "routes/AboutUs": typeof import("./app/routes/AboutUs.jsx");
+  "routes/products": typeof import("./app/routes/products.jsx");
+  "routes/cart": typeof import("./app/routes/cart.jsx");
 };

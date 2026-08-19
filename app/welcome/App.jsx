@@ -1,5 +1,5 @@
-import './welcomel.less';
-import { Link } from 'react-router';
+import "./welcomel.css";
+import { Link } from "react-router";
 
 export function Welcome() {
   return (
@@ -15,10 +15,17 @@ export function Welcome() {
         <div className="container_text">
           <p className="title">Bienvenido a Paradise</p>
           <p className="description">
-            Hola somos Paradise una empresa natural dedicada a la venta de productos naturales y orgánicos, con el objetivo de brindar bienestar y salud a nuestros clientes. Nos especializamos en ofrecer productos de alta calidad, cultivados de manera sostenible y respetuosa con el medio ambiente. Nuestro compromiso es proporcionar opciones saludables y nutritivas que promuevan un estilo de vida equilibrado y consciente.
+            Hola somos Paradise una empresa natural dedicada a la venta de
+            productos naturales y orgánicos, con el objetivo de brindar
+            bienestar y salud a nuestros clientes. Nos especializamos en ofrecer
+            productos de alta calidad, cultivados de manera sostenible y
+            respetuosa con el medio ambiente. Nuestro compromiso es proporcionar
+            opciones saludables y nutritivas que promuevan un estilo de vida
+            equilibrado y consciente.
           </p>
           <p className="finally">
-            Recuerda que puedes comprar nuestros productos en línea o en nuestras tiendas físicas.
+            Recuerda que puedes comprar nuestros productos en línea o en
+            nuestras tiendas físicas.
           </p>
         </div>
       </section>

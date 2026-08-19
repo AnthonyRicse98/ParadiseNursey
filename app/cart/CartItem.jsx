@@ -1,14 +1,19 @@
 import { useCart } from "../../core/context/CartContext";
-import './cart.less'; // Importamos los estilos LESS
+import "./cart.css"; // Importamos los estilos LESS
 
 export default function Cart() {
-  const { cartItems, updateQuantity, removeFromCart, clearCart, totalAmount, cartCount } = useCart();
+  const {
+    cartItems,
+    updateQuantity,
+    removeFromCart,
+    clearCart,
+    totalAmount,
+    cartCount,
+  } = useCart();
 
   return (
     <div className="cart-page">
-      <h1 className="cart-title">
-        Carrito de Compras
-      </h1>
+      <h1 className="cart-title">Carrito de Compras</h1>
 
       {cartItems.length === 0 ? (
         <div className="empty-cart-message">
@@ -19,10 +24,7 @@ export default function Cart() {
         <>
           <section className="cart-items-list">
             {cartItems.map((item) => (
-              <div
-                key={item.id}
-                className="cart-item"
-              >
+              <div key={item.id} className="cart-item">
                 {/* Info del producto */}
                 <div className="product-info">
                   <img
@@ -30,6 +32,7 @@ export default function Cart() {
                     alt={item.name}
                     className="product-image"
                   />
+
                   <div>
                     <h3 className="product-name">{item.name}</h3>
                     <p className="unit-price">
@@ -49,9 +52,7 @@ export default function Cart() {
                     >
                       -
                     </button>
-                    <span className="quantity-display">
-                      {item.quantity}
-                    </span>
+                    <span className="quantity-display">{item.quantity}</span>
                     <button
                       onClick={() => updateQuantity(item.id, 1)}
                       className="quantity-btn quantity-btn--green"
@@ -75,19 +76,16 @@ export default function Cart() {
             <p className="selected-plants-count">
               Plantas seleccionadas: <strong>{cartCount}</strong>
             </p>
-            <h2 className="total-amount">
-              Total a pagar: ${totalAmount}
-            </h2>
+            <h2 className="total-amount">Total a pagar: ${totalAmount}</h2>
 
             <div className="cart-actions">
-              <button
-                onClick={clearCart}
-                className="clear-cart-btn"
-              >
+              <button onClick={clearCart} className="clear-cart-btn">
                 Vaciar Carrito
               </button>
               <button
-                onClick={() => alert("¡Gracias por tu compra en Guardería Paraíso!")}
+                onClick={() =>
+                  alert("¡Gracias por tu compra en Guardería Paraíso!")
+                }
                 className="pay-button"
               >
                 Pagar
